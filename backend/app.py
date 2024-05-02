@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
 
 # OpenWeatherMap API URL
 API_URL = "http://api.openweathermap.org/data/2.5/weather"
