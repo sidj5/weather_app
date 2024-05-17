@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Docker@2
+  displayName: 'Build and push Docker image'
+  inputs:
+    containerRegistry: 'DockerHub'  # Azure DevOps service connection to Docker Hub (configure in project settings)
+    repository: 'sidj5297/weather-app'  # Docker Hub repository name
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'  # Path to the Dockerfile (adjust as needed)
+    tags: 'latest'  # Tags for the Docker image
