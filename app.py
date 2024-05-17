@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 
-app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
+app = Flask(__name__, template_folder="templates", static_folder="static")
 
 # OpenWeatherMap API URL
 API_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -34,4 +34,4 @@ def weather():
         return render_template("index.html", error=error_message)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
