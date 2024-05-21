@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  default: ansible-host
 
 steps:
 - task: Docker@2
@@ -13,3 +13,6 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'  # Path to the Dockerfile (adjust as needed)
     tags: 'latest'  # Tags for the Docker image
+    
+- script: |
+    ansible-playbook -i inventory.yaml playbook.yaml
