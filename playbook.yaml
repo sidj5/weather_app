@@ -15,55 +15,55 @@
         state: latest
         update_cache: true
 
-    # - name: Install required packages
-    #   ansible.builtin.apt:
-    #     pkg:
-    #       - apt-transport-https
-    #       - ca-certificates
-    #       - curl
-    #       - software-properties-common
-    #       - python3-pip
-    #       - python3-setuptools
-    #     state: latest
-    #     update_cache: true
+    - name: Install required packages
+      ansible.builtin.apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - python3-setuptools
+        state: latest
+        update_cache: true
 
-    # - name: Add Docker GPG apt Key
-    #   ansible.builtin.apt_key:
-    #     url: https://download.docker.com/linux/ubuntu/gpg
-    #     state: present
+    - name: Add Docker GPG apt Key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
 
-    # - name: Add Docker Repository
-    #   ansible.builtin.apt_repository:
-    #     repo: deb https://download.docker.com/linux/ubuntu focal stable
-    #     state: present
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
 
-    # - name: Update apt and install docker-ce
-    #   ansible.builtin.apt:
-    #     name: docker-ce
-    #     state: latest
-    #     update_cache: true
+    - name: Update apt and install docker-ce
+      ansible.builtin.apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
 
-    # - name: Add Docker group
-    #   ansible.builtin.group:
-    #     name: docker
-    #     state: present
+    - name: Add Docker group
+      ansible.builtin.group:
+        name: docker
+        state: present
 
-    # - name: Add Docker user
-    #   ansible.builtin.user:
-    #     name: docker
-    #     groups: "docker"
-    #     append: true
-    #     sudo_user: yes    
+    - name: Add Docker user
+      ansible.builtin.user:
+        name: docker
+        groups: "docker"
+        append: true
+        sudo_user: yes    
 
-    # - name: Install Docker Module for Python
-    #   ansible.builtin.pip:
-    #     name: docker
+    - name: Install Docker Module for Python
+      ansible.builtin.pip:
+        name: docker
 
-    # - name: Restart Docker
-    #   ansible.builtin.service:
-    #     name: docker
-    #     state: started
-    #     enabled: true
+    - name: Start Docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
     
     # - name: Pull image from repository
     #   ansible builtin.shell: |
