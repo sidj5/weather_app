@@ -52,8 +52,7 @@
       ansible.builtin.user:
         name: docker
         groups: "docker"
-        append: true
-        sudo_user: yes    
+        append: true    
 
     - name: Install Docker Module for Python
       ansible.builtin.pip:
