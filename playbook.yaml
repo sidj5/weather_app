@@ -1,0 +1,79 @@
+---
+- name: Install and setup docker on remote machines 
+  hosts: all
+  become: true
+  # vars:
+  #   container_name:
+  #   container_image:
+  #   docker_hub_username:
+  #   docker_hub_password:
+  
+  tasks:
+    - name: Install aptitude
+      ansible.builtin.apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+
+    # - name: Install required packages
+    #   ansible.builtin.apt:
+    #     pkg:
+    #       - apt-transport-https
+    #       - ca-certificates
+    #       - curl
+    #       - software-properties-common
+    #       - python3-pip
+    #       - python3-setuptools
+    #     state: latest
+    #     update_cache: true
+
+    # - name: Add Docker GPG apt Key
+    #   ansible.builtin.apt_key:
+    #     url: https://download.docker.com/linux/ubuntu/gpg
+    #     state: present
+
+    # - name: Add Docker Repository
+    #   ansible.builtin.apt_repository:
+    #     repo: deb https://download.docker.com/linux/ubuntu focal stable
+    #     state: present
+
+    # - name: Update apt and install docker-ce
+    #   ansible.builtin.apt:
+    #     name: docker-ce
+    #     state: latest
+    #     update_cache: true
+
+    # - name: Add Docker group
+    #   ansible.builtin.group:
+    #     name: docker
+    #     state: present
+
+    # - name: Add Docker user
+    #   ansible.builtin.user:
+    #     name: docker
+    #     groups: "docker"
+    #     append: true
+    #     sudo_user: yes    
+
+    # - name: Install Docker Module for Python
+    #   ansible.builtin.pip:
+    #     name: docker
+
+    # - name: Restart Docker
+    #   ansible.builtin.service:
+    #     name: docker
+    #     state: started
+    #     enabled: true
+    
+    # - name: Pull image from repository
+    #   ansible builtin.shell: |
+    #     docker login --username {{ docker_hub_username }} --password {{ docker_hub_password }}
+    #     docker pull {{ container_image }}:latest
+
+    # - name: Start the application container
+    #   community.docker.docker_container:
+    #     name: {{ container_name }}
+    #     image: {{ container_image }}
+    #     ports:
+    #       - "80:5000"
+        
