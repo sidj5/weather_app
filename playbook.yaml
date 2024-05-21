@@ -6,7 +6,7 @@
   #   container_name:
   #   container_image:
   #   docker_hub_username:
-  #   docker_hub_password:
+  #   docker_hub_password
   
   tasks:
     - name: Install aptitude
