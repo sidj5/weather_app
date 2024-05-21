@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  default: ansible-host
+  name: Default
 
 steps:
 - task: Docker@2
