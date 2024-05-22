@@ -78,6 +78,7 @@
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ registry_url }}/{{ container_image }}"
+        state: started
         ports:
           - "80:5000"
         
