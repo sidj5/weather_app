@@ -2,7 +2,7 @@
 - name: Install and setup docker on remote machines 
   hosts: all
   become: true
-  # vars:
+  vars:
     container_name: weather
     container_image: sidj5297/weather-app
     docker_hub_username: sidj5297@gmail.com 
