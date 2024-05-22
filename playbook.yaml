@@ -49,9 +49,13 @@
     #     name: docker
     #     state: present
 
+    # - name: Get Logged in User
+    #   ansible.builtin.command: whoami
+    #   register: logged_user
+
     # - name: Add Docker user
     #   ansible.builtin.user:
-    #     name: docker
+    #     name: "{{ logged_user.stdout }}"
     #     groups: "docker"
     #     append: true    
 
