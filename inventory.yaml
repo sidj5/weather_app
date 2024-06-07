@@ -3,3 +3,7 @@ all:
     vm1:
       ansible_host: 10.0.0.5
       ansible_user: remote_vm1
+    
+    vm2:
+      ansible_host: 20.79.189.158
+      ansible_user: remote_vm2

@@ -10,64 +10,64 @@
     docker_hub_password: "Sakshi5297$"
   
   tasks:
-    # - name: Install aptitude
-    #   ansible.builtin.apt:
-    #     name: aptitude
-    #     state: latest
-    #     update_cache: true
+    - name: Install aptitude
+      ansible.builtin.apt:
+        name: aptitude
+        state: latest
+        update_cache: true
 
-    # - name: Install required packages
-    #   ansible.builtin.apt:
-    #     pkg:
-    #       - apt-transport-https
-    #       - ca-certificates
-    #       - curl
-    #       - software-properties-common
-    #       - python3-pip
-    #       - python3-setuptools
-    #     state: latest
-    #     update_cache: true
+    - name: Install required packages
+      ansible.builtin.apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - python3-setuptools
+        state: latest
+        update_cache: true
 
-    # - name: Add Docker GPG apt Key
-    #   ansible.builtin.apt_key:
-    #     url: https://download.docker.com/linux/ubuntu/gpg
-    #     state: present
+    - name: Add Docker GPG apt Key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
 
-    # - name: Add Docker Repository
-    #   ansible.builtin.apt_repository:
-    #     repo: deb https://download.docker.com/linux/ubuntu focal stable
-    #     state: present
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
 
-    # - name: Update apt and install docker-ce
-    #   ansible.builtin.apt:
-    #     name: docker-ce
-    #     state: latest
-    #     update_cache: true
+    - name: Update apt and install docker-ce
+      ansible.builtin.apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
 
-    # - name: Add Docker group
-    #   ansible.builtin.group:
-    #     name: docker
-    #     state: present
+    - name: Add Docker group
+      ansible.builtin.group:
+        name: docker
+        state: present
 
-    # - name: Get Logged in User
-    #   ansible.builtin.command: whoami
-    #   register: logged_user
+    - name: Get Logged in User
+      ansible.builtin.command: whoami
+      register: logged_user
 
-    # - name: Add Docker user
-    #   ansible.builtin.user:
-    #     name: "{{ logged_user.stdout }}"
-    #     groups: "docker"
-    #     append: true    
+    - name: Add Docker user
+      ansible.builtin.user:
+        name: "{{ logged_user.stdout }}"
+        groups: "docker"
+        append: true    
 
-    # - name: Install Docker Module for Python
-    #   ansible.builtin.pip:
-    #     name: docker
+    - name: Install Docker Module for Python
+      ansible.builtin.pip:
+        name: docker
 
-    # - name: Start Docker
-    #   ansible.builtin.service:
-    #     name: docker
-    #     state: started
-    #     enabled: true
+    - name: Start Docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
     
     - name: Pull image from repository
       ansible.builtin.shell: |
