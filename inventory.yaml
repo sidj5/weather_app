@@ -7,3 +7,7 @@ all:
     vm2:
       ansible_host: 20.79.189.158
       ansible_user: remote_vm2
+
+    vm3:
+      ansible_host: 104.43.110.181
+      ansible_user: remote_vm3
