@@ -17,6 +17,11 @@
             {% if weather %}
                 <p>Temperature: {{ weather['temperature'] }}°C</p>
                 <p>Description: {{ weather['description'] }}</p>
+                <p>Server Latency: {{ weather['server_latency'] }} seconds</p>
+            {% endif %}
+            {% if error %}
+                <p>{{ error }}</p>
+                <p>Server Latency: {{ server_latency }} seconds</p>
             {% endif %}
         </div>
     </div>
