@@ -15,9 +15,25 @@
         </form>
         <div class="weather-info">
             {% if weather %}
+                <h2>Current Weather</h2>
                 <p>Temperature: {{ weather['temperature'] }}°C</p>
                 <p>Description: {{ weather['description'] }}</p>
                 <p>Server Latency: {{ weather['server_latency'] }} seconds</p>
+            {% endif %}
+
+            {% if historical_data %}
+                <h2>Weather Forecast (Next 5 Days)</h2>
+                <ul>
+                {% for day in historical_data %}
+                    <li>
+                        <strong>Date:</strong> {{ day['dt'] | datetimeformat('%Y-%m-%d %H:%M:%S') }}<br>
+                        <strong>Temperature:</strong> {{ day['main']['temp'] }}°C<br>
+                        <strong>Description:</strong> {{ day['weather'][0]['description'] }}<br>
+                        <strong>Humidity:</strong> {{ day['main']['humidity'] }}%<br>
+                        <strong>Wind Speed:</strong> {{ day['wind']['speed'] }} m/s
+                    </li>
+                {% endfor %}
+                </ul>
             {% endif %}
             {% if error %}
                 <p>{{ error }}</p>

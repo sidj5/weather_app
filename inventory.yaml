@@ -13,5 +13,5 @@ all:
       ansible_user: remote_vm3
 
     bms1:
-      ansible_host: 147.28.226.105
+      ansible_host: 147.28.226.221
       ansible_user: remote-bms1
